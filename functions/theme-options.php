@@ -1,0 +1,43 @@
+<?php
+add_action('init','weaversweb_ftn_options');
+if(!function_exists('weaversweb_ftn_options')){
+	function weaversweb_ftn_options(){
+		// If using image radio buttons,define a directory path
+		$imagepath = get_stylesheet_directory_uri().'/images/'; 
+		$options = array(
+		/* ---------------------------------------------------------------------------- */
+		/* Header Setting */
+		/* ---------------------------------------------------------------------------- */
+		array("name" => "Header Section",
+			  "type" => "heading"),
+		array("name" => "Choose Site Logo",
+			  "desc" => "Please choose your header logo",
+			  "id"   => "ohs_header_logo",
+			  "std"  => "",
+			  "type" => "upload"),
+		/* ---------------------------------------------------------------------------- */
+		/* Footer Setting */
+		/* ---------------------------------------------------------------------------- */
+		array("name" => "Footer Section",
+			  "type" => "heading"),
+		array("name" => "Choose Site Logo",
+			  "desc" => "Please choose your footer logo",
+			  "id"   => "ohs_footer_logo",
+			  "std"  => "",
+			  "type" => "upload"),
+		array("name" => "Footer Short Description",
+			  "desc" => "Enter Short Description",
+			  "id"   => "ohs_footer_shortcode",
+			  "std"  => "",
+			  "type" => "textarea"),
+		array("name" => "Bottom Copyright",
+			  "desc" => "Enter Copyright Text Content",
+			  "id"   => "ohs_footer_copyright",
+			  "std"  => "",
+			  "type" => "textarea"),
+		/* ---------------------------------------------------------------------------- */			
+		);		
+		weaversweb_ftn_update_option('of_template',$options);
+		}
+	}
+?>
