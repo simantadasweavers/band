@@ -175,3 +175,55 @@ function login_user()
 }
 
 /** end of authentication */
+
+try{
+	add_role(
+		'clients', //  System name of the role.
+		__('Clients'), // Display name of the role.
+		array(
+			'read' => true,
+			'delete_posts'  => false,
+			'delete_published_posts' => false,
+			'edit_posts'   => false,
+			'publish_posts' => false,
+			'edit_published_posts'   => false,
+			'upload_files'  => false,
+			'moderate_comments'=> false, // This user will be able to moderate the comments.
+		)
+	);
+
+
+	add_role(
+		'suppliers',
+		__('Suppliers'), 
+		array(
+			'read' => true,
+		'delete_posts'  => true,
+		'delete_published_posts' => true,
+		'edit_posts'   => true,
+		'publish_posts' => true,
+		'edit_published_posts'   => true,
+		'upload_files'  => true,
+		'moderate_comments'=> false,
+		)
+	);
+
+
+	add_role(
+		'service providers', //  System name of the role.
+		__('Service Providers'), // Display name of the role.
+		array(
+			'read' => true,
+			'delete_posts'  => true,
+			'delete_published_posts' => true,
+			'edit_posts'   => true,
+			'publish_posts' => true,
+			'edit_published_posts'   => true,
+			'upload_files'  => true,
+			'moderate_comments'=> false,
+		)
+	);
+	
+}catch(Exception $e){
+	echo $e->getMessage();
+}
